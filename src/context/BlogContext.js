@@ -4,8 +4,10 @@ const BlogContext = React.createContext();
 
 export const BlogProvider = ({ children }) => {
   return(
-    <BlogContext.Provider>
+    <BlogContext.Provider value={{number: 5, word: 'five'}}>
       {children}
     </BlogContext.Provider>
   );
 };
+
+export default BlogContext;
