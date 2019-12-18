@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 import BlogContext from '../context/BlogContext';
 
 const IndexScreen = () => {
@@ -7,7 +7,15 @@ const IndexScreen = () => {
 
   return(
     <View>
-      <Text>IndexScreen {value.number} and {value.word}</Text>
+      <FlatList
+        data={value}
+        keyExtractor={(value) => value.title }
+        renderItem={( {item} ) => {
+          return (
+            <Text>{item.title}</Text>
+          );
+        }}
+      />
     </View>
   );
 };
