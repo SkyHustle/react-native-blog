@@ -3,7 +3,6 @@ import React, { useReducer } from 'react';
 const BlogContext = React.createContext();
 
 const reducer = (state, action) => {
-  console.log("state --->", state, "action --->", action)
   switch (action.type) {
     case 'add_blogpost':
       return [...state, { title: `New Blog Post #${state.length + 1}` }];
