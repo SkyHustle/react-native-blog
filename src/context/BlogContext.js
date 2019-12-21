@@ -3,9 +3,21 @@ import createDataContext from './createDataContext';
 const reducer = (state, action) => {
   switch (action.type) {
     case 'add_blogpost':
-      return [...state, { title: `New Blog Post #${state.length + 1}` }];
+      return [
+        ...state,
+        {
+          title: `New Blog Post #${state.length + 1}`,
+          id: Math.random()
+        }
+      ];
     case 'delete_blogpost':
-      return console.log("deleting blog post")
+      return [
+        ...state,
+        {
+          title: `New Blog Post #${state.length + 1}`,
+          id: Math.random()
+        }
+      ];
     default:
       return state;
   }
@@ -26,5 +38,5 @@ const deleteBlogPost = (dispatch) => {
 export const { Context, Provider } = createDataContext(
   reducer,
   { addBlogPost, deleteBlogPost },
-  [{title: 'Booyah #1'}]
+  []
 );
