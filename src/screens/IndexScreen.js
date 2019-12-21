@@ -8,6 +8,10 @@ const IndexScreen = () => {
 
   return(
     <View>
+      <Button
+        title='Add Blog Post'
+        onPress={addBlogPost}
+      />
       <FlatList
         data={state}
         keyExtractor={(blogPost) => blogPost.title }
@@ -20,10 +24,6 @@ const IndexScreen = () => {
           );
         }}
       />
-      <Button
-        title='Add Blog Post'
-        onPress={addBlogPost}
-      />
     </View>
   );
 };
@@ -31,7 +31,11 @@ const IndexScreen = () => {
 const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    paddingVertical: 20,
+    paddingHorizontal: 10,
+    borderTopWidth: 1,
+    borderColor: 'gray'
   },
   title: {
     fontSize: 18
