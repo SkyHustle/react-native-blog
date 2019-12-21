@@ -4,7 +4,7 @@ import { Context } from '../context/BlogContext';
 import { Feather } from '@expo/vector-icons';
 
 const IndexScreen = () => {
-  const { state, addBlogPost } = useContext(Context);
+  const { state, addBlogPost, deleteBlogPost } = useContext(Context);
 
   return(
     <View>
@@ -19,7 +19,7 @@ const IndexScreen = () => {
           return (
             <View style={styles.row}>
               <Text style={styles.title}>{item.title}</Text>
-              <Feather style={styles.icon} name='trash' />
+              <Feather style={styles.icon} name='trash' onPress={deleteBlogPost} />
             </View>
           );
         }}
