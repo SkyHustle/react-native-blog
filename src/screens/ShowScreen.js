@@ -3,10 +3,12 @@ import { StyleSheet, Text, View, FlatList, Button, TouchableOpacity } from 'reac
 import { Context } from '../context/BlogContext';
 import { Feather } from '@expo/vector-icons';
 
-const ShowScreen = () => {
+const ShowScreen = ({ navigation }) => {
+  const id = navigation.getParam('id');
+
   return (
     <View>
-      <Text>Show Screen</Text>
+      <Text>Show Screen for {id}</Text>
     </View>
   );
 };
