@@ -2,8 +2,9 @@ import React, { useContext } from 'react';
 import { StyleSheet, Text, View, FlatList, Button, TouchableOpacity } from 'react-native';
 import { Context } from '../context/BlogContext';
 import { Feather } from '@expo/vector-icons';
+import { withNavigation } from 'react-navigation';
 
-const IndexScreen = () => {
+const IndexScreen = ({ navigation }) => {
   const { state, addBlogPost, deleteBlogPost } = useContext(Context);
 
   return(
@@ -18,7 +19,10 @@ const IndexScreen = () => {
         renderItem={({ item }) => {
           return (
             <View style={styles.row}>
-              <Text style={styles.title}>{item.title}</Text>
+              <TouchableOpacity onPress={() => navigation.navigate('Show', { id: item.id })}>
+                <Text style={styles.title}>{item.title}</Text>
+              </TouchableOpacity>
+
               <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
                 <Feather style={styles.icon} name='trash' />
               </TouchableOpacity>
