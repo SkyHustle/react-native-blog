@@ -5,10 +5,12 @@ import { Feather } from '@expo/vector-icons';
 
 const ShowScreen = ({ navigation }) => {
   const id = navigation.getParam('id');
+  const { state } = useContext(Context);
+  const blog = state.find(blog => blog.id === id);
 
   return (
     <View>
-      <Text>Show Screen for {id}</Text>
+      <Text>Show Screen for {blog.title} {blog.id}</Text>
     </View>
   );
 };
