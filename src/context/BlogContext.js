@@ -17,7 +17,7 @@ const reducer = (state, action) => {
   }
 };
 
-const addBlogPost = (dispatch, id) => {
+const addBlogPost = (dispatch) => {
   return () => {
     dispatch({ type: 'add_blogpost' });
   };
