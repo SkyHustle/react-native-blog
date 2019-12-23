@@ -3,7 +3,8 @@ import { StyleSheet, Text, View, TextInput } from 'react-native';
 import { Context } from '../context/BlogContext';
 
 const CreateScreen = () => {
-  // const [term, setTerm] = useState('');
+  const [title, setTitle] = useState('');
+  // const [content, setContent] = useState('');
   const { addBlogPost } = useContext(Context);
 
   return (
@@ -13,9 +14,9 @@ const CreateScreen = () => {
         placeholder='Blog Title'
         autoCapitalize='none'
         autoCorrect={true}
-        value=''
-        
-        onEndEditing={addBlogPost}
+        value={title}
+        onChangeText={(text) => setTitle(text)}
+        onEndEditing={() => addBlogPost(title)}
       />
     </View>
   );
