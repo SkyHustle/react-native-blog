@@ -20,7 +20,7 @@ const IndexScreen = ({ navigation }) => {
           return (
             <View style={styles.row}>
               <TouchableOpacity onPress={() => navigation.navigate('Show', { id: item.id })}>
-                <Text style={styles.title}>{item.title}</Text>
+                <Text style={styles.title}>{item.title} {item.id}</Text>
               </TouchableOpacity>
 
               <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
