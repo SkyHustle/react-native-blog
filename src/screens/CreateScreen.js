@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 import { Context } from '../context/BlogContext';
 
 const CreateScreen = () => {
@@ -14,14 +14,16 @@ const CreateScreen = () => {
         style={styles.inputStyle}
         value={title}
         onChangeText={(text) => setTitle(text)}
-        onEndEditing={() => addBlogPost(title)}
       />
       <Text style={styles.label}>Enter Content:</Text>
       <TextInput
         style={styles.inputStyle}
         value={content}
         onChangeText={(text) => setContent(text)}
-        onEndEditing={() => addBlogPost(content)}
+      />
+      <Button
+        title='Add Blog Post'
+        onPress={() => addBlogPost(title)}
       />
     </View>
   );
