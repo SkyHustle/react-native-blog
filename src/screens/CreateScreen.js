@@ -4,38 +4,43 @@ import { Context } from '../context/BlogContext';
 
 const CreateScreen = () => {
   const [title, setTitle] = useState('');
-  // const [content, setContent] = useState('');
+  const [content, setContent] = useState('');
   const { addBlogPost } = useContext(Context);
 
   return (
-    <View style={styles.backgroundStyle}>
+    <View>
+      <Text style={styles.label}>Enter Title:</Text>
       <TextInput
         style={styles.inputStyle}
-        placeholder='Blog Title'
-        autoCapitalize='none'
-        autoCorrect={true}
         value={title}
         onChangeText={(text) => setTitle(text)}
         onEndEditing={() => addBlogPost(title)}
+      />
+      <Text style={styles.label}>Enter Content:</Text>
+      <TextInput
+        style={styles.inputStyle}
+        value={content}
+        onChangeText={(text) => setContent(text)}
+        onEndEditing={() => addBlogPost(content)}
       />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  backgroundStyle: {
-    marginTop: 10,
-    backgroundColor: 'lightgrey',
-    height: 50,
-    borderRadius: 5,
-    marginHorizontal: 15,
-    flexDirection: 'row',
-    marginBottom: 10
-  },
   inputStyle: {
-    flex: 1,
-    fontSize: 18
+    fontSize: 18,
+    borderWidth: 1,
+    borderColor: 'black',
+    marginBottom: 15,
+    padding: 5,
+    margin: 5
   },
+  label: {
+    fontSize: 20,
+    marginBottom: 5,
+    marginLeft: 5
+  }
 });
 
 export default CreateScreen;
