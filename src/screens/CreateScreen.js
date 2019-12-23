@@ -23,7 +23,7 @@ const CreateScreen = () => {
       />
       <Button
         title='Add Blog Post'
-        onPress={() => addBlogPost(title)}
+        onPress={() => addBlogPost(title, content)}
       />
     </View>
   );

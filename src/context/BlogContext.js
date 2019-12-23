@@ -6,7 +6,8 @@ const reducer = (state, action) => {
       return [
         ...state,
         {
-          title: action.payload,
+          title: action.payload.title,
+          content: action.payload.content,
           id: Math.floor(Math.random() * 9999)
         }
       ];
@@ -18,8 +19,8 @@ const reducer = (state, action) => {
 };
 
 const addBlogPost = (dispatch) => {
-  return (title) => {
-    dispatch({ type: 'add_blogpost', payload: title });
+  return (title, content) => {
+    dispatch({ type: 'add_blogpost', payload: { title, content } });
   };
 };
 
