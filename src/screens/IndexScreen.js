@@ -11,7 +11,7 @@ const IndexScreen = ({ navigation }) => {
     <View>
       <Button
         title='Add Blog Post'
-        onPress={addBlogPost}
+        onPress={() => navigation.navigate('Create')}
       />
       <FlatList
         data={state}
