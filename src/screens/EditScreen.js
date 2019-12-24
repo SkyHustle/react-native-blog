@@ -1,20 +1,21 @@
 import React, { useContext } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import { Context } from '../context/BlogContext';
-import { Feather } from '@expo/vector-icons';
 
-const ShowScreen = ({ navigation }) => {
+const EditScreen = ({ navigation }) => {
   const id = navigation.getParam('id');
   const { state } = useContext(Context);
   const blogPost = state.find(blogPost => blogPost.id === id);
 
   return (
     <View>
+      <Text>Enter New Title:</Text>
       <Text>{blogPost.title}</Text>
+      <Text>Enter New Content</Text>
       <Text>{blogPost.content}</Text>
-      <TouchableOpacity onPress={() => navigation.navigate('Edit', { id })}>
-        <Feather name='edit-2' style={styles.icon} />
-      </TouchableOpacity>
+      <Button
+        title='Save'
+      />
     </View>
   );
 };
@@ -25,4 +26,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ShowScreen;
+export default EditScreen;
