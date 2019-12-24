@@ -12,10 +12,16 @@ const ShowScreen = ({ navigation }) => {
     <View>
       <Text>{blogPost.title}</Text>
       <Text>{blogPost.content}</Text>
+
+      <Feather name='edit-2' style={styles.icon} />
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  icon: {
+    fontSize: 24
+  }
+});
 
 export default ShowScreen;
