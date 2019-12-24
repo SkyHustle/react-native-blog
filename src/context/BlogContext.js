@@ -14,9 +14,8 @@ const reducer = (state, action) => {
     case 'delete_blogpost':
       return state.filter((blogPost) => blogPost.id !== action.payload);
     case 'edit_blogpost':
-      state.filter((blogPost) => blogPost.id !== action.payload.id);
       return [
-        ...state,
+        ...state.filter((blogPost) => blogPost.id !== action.payload.id),
         {
           id: action.payload.id,
           title: action.payload.title,
