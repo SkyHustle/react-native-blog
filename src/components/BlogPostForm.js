@@ -2,13 +2,9 @@ import React, { useContext, useState } from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import { Context } from '../context/BlogContext';
 
-const CreateEditForm = ({ id, navigation }) => {
-  const { state, editBlogPost } = useContext(Context);
-  const blogPost = state.find(blogPost => blogPost.id === id);
-
-  const [title, setTitle] = useState(blogPost.title);
-  const [content, setContent] = useState(blogPost.content);
-
+const BlogPostForm = () => {
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
 
   return (
     <View>
@@ -25,12 +21,7 @@ const CreateEditForm = ({ id, navigation }) => {
         onChangeText={(text) => setContent(text)}
       />
       <Button
-        title='Save'
-        onPress={() => {
-          editBlogPost(id, title, content, () => {
-            navigation.navigate('Index');
-          });
-        }}
+        title='Save Blog Post'
       />
     </View>
   );
@@ -55,4 +46,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default CreateEditForm;
+export default BlogPostForm;
