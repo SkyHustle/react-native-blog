@@ -8,7 +8,14 @@ const EditScreen = ({ navigation }) => {
   const { state, editBlogPost } = useContext(Context);
   const blogPost = state.find(blogPost => blogPost.id === id);
 
-  return <BlogPostForm />;
+  return(
+    <BlogPostForm
+      initialValues={{ title: blogPost.title, content: blogPost.content }}
+      onSubmit={(title, content) => {
+        editBlogPost(title, content, () => navigation.navigate('Index'));
+      }}
+    />
+  );
 };
 
 const styles = StyleSheet.create({});
